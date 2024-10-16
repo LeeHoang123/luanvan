@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-deployment
+  name: demo-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo
+      app: demo-app
   template:
     metadata:
       labels:
-        app: demo
+        app: demo-app
     spec:
       containers:
-        - name: demo
+        - name: demo-app
           image: hoangb2013534/demo:1.0.0-1
           resources:
             limits:

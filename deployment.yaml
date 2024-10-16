@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-app-deployment
+  name: demo-app
 spec:
   replicas: 1
   selector:
@@ -14,25 +14,11 @@ spec:
     spec:
       containers:
         - name: demo-app
-          image: hoangb2013534/demo:1.0.0-3
-          ports:
-            - containerPort: 3000
+          image: hoangb2013534/demo:1.0.0-8
           resources:
             limits:
               cpu: "1"
-              memory: "512Mi"
             requests:
               cpu: "500m"
-              memory: "256Mi"
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            initialDelaySeconds: 5
-            periodSeconds: 10
-          livenessProbe:
-            httpGet:
-              path: /
-              port: 3000
-            initialDelaySeconds: 15
-            periodSeconds: 20
+          ports:
+            - containerPort: 3000
